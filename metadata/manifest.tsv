@@ -1,10 +1,10 @@
 sample-id	absolute-filepath	direction
-SRR957750	/Users/ima/Desktop/Практика 2 сем/HW 7/ancient-oral-microbiome-metagenomics/data/raw/SRR957750.fastq	forward
-SRR957753	/Users/ima/Desktop/Практика 2 сем/HW 7/ancient-oral-microbiome-metagenomics/data/raw/SRR957753.fastq	forward
-SRR957756	/Users/ima/Desktop/Практика 2 сем/HW 7/ancient-oral-microbiome-metagenomics/data/raw/SRR957756.fastq	forward
-SRR957760	/Users/ima/Desktop/Практика 2 сем/HW 7/ancient-oral-microbiome-metagenomics/data/raw/SRR957760.fastq	forward
-SRR986773	/Users/ima/Desktop/Практика 2 сем/HW 7/ancient-oral-microbiome-metagenomics/data/raw/SRR986773.fastq	forward
-SRR986774	/Users/ima/Desktop/Практика 2 сем/HW 7/ancient-oral-microbiome-metagenomics/data/raw/SRR986774.fastq	forward
-SRR986778	/Users/ima/Desktop/Практика 2 сем/HW 7/ancient-oral-microbiome-metagenomics/data/raw/SRR986778.fastq	forward
-SRR986779	/Users/ima/Desktop/Практика 2 сем/HW 7/ancient-oral-microbiome-metagenomics/data/raw/SRR986779.fastq	forward
-SRR986782	/Users/ima/Desktop/Практика 2 сем/HW 7/ancient-oral-microbiome-metagenomics/data/raw/SRR986782.fastq	forward
+S14-V5-P-B17-calc	/Users/ima/Desktop/Практика 2 сем/HW 7/ancient-oral-microbiome-metagenomics/data/raw/SRR957750.fastq	forward
+S18S19-V5-L-B17-root	/Users/ima/Desktop/Практика 2 сем/HW 7/ancient-oral-microbiome-metagenomics/data/raw/SRR957756.fastq	forward
+S15-V5-R-B78-calc	/Users/ima/Desktop/Практика 2 сем/HW 7/ancient-oral-microbiome-metagenomics/data/raw/SRR957753.fastq	forward
+S22S23-V5-N-B78-root	/Users/ima/Desktop/Практика 2 сем/HW 7/ancient-oral-microbiome-metagenomics/data/raw/SRR957760.fastq	forward
+S8-V5-O-G12-calc	/Users/ima/Desktop/Практика 2 сем/HW 7/ancient-oral-microbiome-metagenomics/data/raw/SRR986773.fastq	forward
+S16S17-V5-K1-G12-root	/Users/ima/Desktop/Практика 2 сем/HW 7/ancient-oral-microbiome-metagenomics/data/raw/SRR986778.fastq	forward
+S16S17-V5-K2-G12-root	/Users/ima/Desktop/Практика 2 сем/HW 7/ancient-oral-microbiome-metagenomics/data/raw/SRR986779.fastq	forward
+S10-V5-Q-B61-calc	/Users/ima/Desktop/Практика 2 сем/HW 7/ancient-oral-microbiome-metagenomics/data/raw/SRR986774.fastq	forward
+S20S21-V5-M-B61-root	/Users/ima/Desktop/Практика 2 сем/HW 7/ancient-oral-microbiome-metagenomics/data/raw/SRR986782.fastq	forward

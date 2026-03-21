@@ -1,0 +1,18 @@
+# macOS
+.DS_Store
+
+# raw sequencing data
+data/raw/*.fastq
+
+# QIIME artifacts
+*.qza
+*.qzv
+
+# large intermediate files
+data/processed/
+
+# results
+results/
+
+# cache
+.qiime2
