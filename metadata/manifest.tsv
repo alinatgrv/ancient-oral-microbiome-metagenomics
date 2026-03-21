@@ -1,10 +1,10 @@
-sample-id,absolute-filepath,direction
-SRR957750,/Users/ima/Desktop/Практика 2 сем/HW 7/ancient-oral-microbiome-metagenomics/data/raw/SRR957750.fastq,forward
-SRR957753,/Users/ima/Desktop/Практика 2 сем/HW 7/ancient-oral-microbiome-metagenomics/data/raw/SRR957753.fastq,forward
-SRR957756,/Users/ima/Desktop/Практика 2 сем/HW 7/ancient-oral-microbiome-metagenomics/data/raw/SRR957756.fastq,forward
-SRR957760,/Users/ima/Desktop/Практика 2 сем/HW 7/ancient-oral-microbiome-metagenomics/data/raw/SRR957760.fastq,forward
-SRR986773,/Users/ima/Desktop/Практика 2 сем/HW 7/ancient-oral-microbiome-metagenomics/data/raw/SRR986773.fastq,forward
-SRR986774,/Users/ima/Desktop/Практика 2 сем/HW 7/ancient-oral-microbiome-metagenomics/data/raw/SRR986774.fastq,forward
-SRR986778,/Users/ima/Desktop/Практика 2 сем/HW 7/ancient-oral-microbiome-metagenomics/data/raw/SRR986778.fastq,forward
-SRR986779,/Users/ima/Desktop/Практика 2 сем/HW 7/ancient-oral-microbiome-metagenomics/data/raw/SRR986779.fastq,forward
-SRR986782,/Users/ima/Desktop/Практика 2 сем/HW 7/ancient-oral-microbiome-metagenomics/data/raw/SRR986782.fastq,forward
+sample-id	absolute-filepath	direction
+SRR957750	/Users/ima/Desktop/Практика 2 сем/HW 7/ancient-oral-microbiome-metagenomics/data/raw/SRR957750.fastq	forward
+SRR957753	/Users/ima/Desktop/Практика 2 сем/HW 7/ancient-oral-microbiome-metagenomics/data/raw/SRR957753.fastq	forward
+SRR957756	/Users/ima/Desktop/Практика 2 сем/HW 7/ancient-oral-microbiome-metagenomics/data/raw/SRR957756.fastq	forward
+SRR957760	/Users/ima/Desktop/Практика 2 сем/HW 7/ancient-oral-microbiome-metagenomics/data/raw/SRR957760.fastq	forward
+SRR986773	/Users/ima/Desktop/Практика 2 сем/HW 7/ancient-oral-microbiome-metagenomics/data/raw/SRR986773.fastq	forward
+SRR986774	/Users/ima/Desktop/Практика 2 сем/HW 7/ancient-oral-microbiome-metagenomics/data/raw/SRR986774.fastq	forward
+SRR986778	/Users/ima/Desktop/Практика 2 сем/HW 7/ancient-oral-microbiome-metagenomics/data/raw/SRR986778.fastq	forward
+SRR986779	/Users/ima/Desktop/Практика 2 сем/HW 7/ancient-oral-microbiome-metagenomics/data/raw/SRR986779.fastq	forward
+SRR986782	/Users/ima/Desktop/Практика 2 сем/HW 7/ancient-oral-microbiome-metagenomics/data/raw/SRR986782.fastq	forward
