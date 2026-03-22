@@ -183,6 +183,59 @@ At the same time, many ASVs were assigned only to uncultured or partially resolv
 ![Taxonomic composition of ancient oral microbiome samples at taxonomic level 7](../figures/qiime_tax.jpg)
 *Figure 1. Taxonomic composition of the analyzed ancient oral samples at taxonomic level 7 based on SILVA 138 classification and QIIME2 taxa barplot visualization.*
 
+### Phylogenetic diversity and PCoA analysis
+
+To investigate differences in microbial community composition between samples, 
+phylogenetic diversity analysis was performed using the QIIME2 diversity pipeline.
+
+First, representative ASV sequences were aligned using MAFFT and a phylogenetic 
+tree was constructed with FastTree:
+
+```bash
+qiime phylogeny align-to-tree-mafft-fasttree \
+  --i-sequences data/processed/rep-seqs.qza \
+  --o-alignment data/processed/aligned-rep-seqs.qza \
+  --o-masked-alignment data/processed/masked-aligned-rep-seqs.qza \
+  --o-tree data/processed/unrooted-tree.qza \
+  --o-rooted-tree data/processed/rooted-tree.qza
+```
+
+Based on the rooted phylogenetic tree and the ASV feature table, diversity metrics
+were calculated using the `core-metrics-phylogenetic` pipeline:
+```bash
+qiime diversity core-metrics-phylogenetic \
+  --i-phylogeny data/processed/rooted-tree.qza \
+  --i-table data/processed/table.qza \
+  --p-sampling-depth 3500 \
+  --m-metadata-file metadata/sample-metadata.tsv \
+  --output-dir results/core-metrics-results
+```
+
+This analysis produced several beta-diversity distance matrices, including
+Unweighted UniFrac, Weighted UniFrac, Jaccard, and Bray–Curtis distances.
+Principal Coordinate Analysis (PCoA) was then used to visualize differences
+between microbial communities across samples.
+
+The PCoA plot based on the Weighted UniFrac distance is shown in Figure 2.
+
+The first principal coordinate explains approximately 59.4% of the variance
+between samples, while the second coordinate explains 21.3%. Samples show
+clear separation along the first axis, indicating differences in the relative
+abundance of phylogenetically related taxa between individuals.
+
+Samples labeled as having periodontal disease show partial clustering,
+suggesting that disease status may influence the structure of the oral
+microbial community.
+
+![PCoA of ancient oral microbiome samples based on weighted UniFrac distance](../figures/weighted_unifrac_pcoa.jpg)
+
+*Figure 2. Principal Coordinate Analysis (PCoA) of microbial communities based on weighted UniFrac distance. Each point represents a sample, colored according to periodontal disease status.*
+
+
+
+
+
+
 
 
 
