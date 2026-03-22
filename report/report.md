@@ -227,7 +227,7 @@ Samples labeled as having periodontal disease show partial clustering,
 suggesting that disease status may influence the structure of the oral
 microbial community.
 
-![PCoA of ancient oral microbiome samples based on weighted UniFrac distance](../figures/weighted_unifrac_pcoa.jpg)
+![PCoA of ancient oral microbiome samples based on weighted UniFrac distance](../figures/weight_inifrac_pcoa.jpg)
 
 *Figure 2. Principal Coordinate Analysis (PCoA) of microbial communities based on weighted UniFrac distance. Each point represents a sample, colored according to periodontal disease status.*
 
