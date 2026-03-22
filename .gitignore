@@ -1,18 +1,43 @@
-# macOS
-.DS_Store
-
-# raw sequencing data
-data/raw/*.fastq
-
-# QIIME artifacts
+# QIIME2 artifacts
 *.qza
 *.qzv
 
-# large intermediate files
-data/processed/
+# assemblies
+*.fna
+*.fasta
+*.fa
+*.gz
 
-# results
-results/
+# alignment files
+*.sam
+*.bam
+*.bed
+*.bai
 
-# cache
-.qiime2
+# large datasets
+data/raw/*
+data/processed/*
+data/shotgun/*
+
+# macOS junk
+.DS_Store
+
+data/shotgun/*
+
+.DS_Store
+
+*.qza
+*.qzv
+*.sam
+*.bam
+*.bai
+*.bed
+*.fna
+*.fa
+*.fasta
+*.gz
+
+data/raw/*
+data/processed/*
+data/shotgun/*
+results/*

@@ -11,7 +11,7 @@ Two main approaches are commonly used:
 In this project we analyze ancient dental calculus samples from a medieval monastic site in Germany.
 Dental calculus preserves microbial DNA for hundreds or even thousands of years and therefore provides a unique opportunity to study historical oral microbiomes.
 
-The aim of this project is to analyze the microbial composition of ancient dental samples and investigate the presence of periodontal pathogens.
+The aim of this project is to characterize the microbial composition of ancient dental calculus samples and investigate the presence of oral pathogens using both amplicon-based and shotgun metagenomic approaches.
 
 ---
 
@@ -31,6 +31,8 @@ The following tools were used:
 - DADA2
 - SILVA database
 - Kraken2
+- minimap2
+- samtools
 - bedtools
 
 ---
@@ -232,12 +234,79 @@ microbial community.
 *Figure 2. Principal Coordinate Analysis (PCoA) of microbial communities based on weighted UniFrac distance. Each point represents a sample, colored according to periodontal disease status.*
 
 
+### Shotgun metagenomic profiling using Kraken2
+
+To further characterize the microbial composition of the ancient dental calculus sample, shotgun sequencing reads were classified using the Kraken2 taxonomic classifier.
+
+Kraken2 assigns reads to taxa by comparing k-mers from sequencing reads to a large reference database of microbial genomes. The classification results were summarized by counting the number of reads assigned to each taxon in the Kraken2 output file.
 
 
+The analysis revealed that the dominant taxa in the sample were bacteria commonly associated with the human oral microbiome. Among the most abundant species were:
 
+- Streptococcus sanguinis  
+- Streptococcus gordonii  
+- Arachnia propionica  
+- Abiotrophia defectiva  
+- Lautropia mirabilis  
+- Actinomyces species  
+- Neisseria species  
+- Capnocytophaga species  
 
+These organisms are typical members of dental plaque and oral biofilm communities.
+
+Importantly, the pathogen **Tannerella forsythia**, a member of the periodontal **red complex**, was also detected in the sample. The presence of this organism supports previous evidence that periodontal pathogens were present in the oral microbiome of ancient human populations.
+
+Overall, the shotgun sequencing results are consistent with the 16S rRNA amplicon analysis, which also identified several oral-associated genera including Streptococcus, Neisseria, Capnocytophaga, and Actinomyces.
+
+### Comparison with the modern *Tannerella forsythia* genome
+
+To investigate potential genomic differences between the ancient and modern strains, the assembled contigs were aligned against the complete genome of *Tannerella forsythia* (GenBank accession NC_016610.1).
+
+The alignment was performed using `minimap2`, and the resulting SAM file was converted to a sorted and indexed BAM file with `samtools`. Alignment coordinates were converted to BED format using `bedtools`. Genome regions of the modern reference not covered by ancient contigs were identified by intersecting the alignment with the reference genome annotation.
+
+Example commands used in the analysis:
+
+```bash
+minimap2 -ax asm5 \
+  data/reference/t_forsythia.fasta \
+  data/shotgun/G12_assembly.fna \
+  > results/t_forsythia_alignment.sam
+
+samtools view -bS results/t_forsythia_alignment.sam > results/t_forsythia_alignment.bam
+samtools sort results/t_forsythia_alignment.bam -o results/t_forsythia_alignment_sorted.bam
+samtools index results/t_forsythia_alignment_sorted.bam
+
+bedtools bamtobed -i results/t_forsythia_alignment_sorted.bam > results/alignment.bed
+
+bedtools intersect \
+  -a data/reference/t_forsythia.gff3 \
+  -b results/alignment.bed \
+  -v > results/missing_genes.gff3
+```
+In total, **956 genes and 964 coding sequences (CDS)** from the modern reference genome were not intersected by the ancient assembly contigs.
+
+Among the uncovered genes were proteins involved in transport and membrane processes (ABC transporters, MFS transporters), fatty acid biosynthesis enzymes, nucleotide metabolism enzymes, RNA modification proteins, as well as several hypothetical proteins and mobile genetic element–related proteins such as transposases.
+
+Examples of such genes include:
+
+- beta-ketoacyl-ACP synthase family protein
+- ABC transporter ATP-binding protein
+- dihydroorotate dehydrogenase electron transfer subunit
+- tRNA pseudouridine synthase TruA
+- MFS transporter
+- IS1595 family transposase
+
+Because the ancient assembly is fragmented and derived from metagenomic sequencing, these uncovered regions likely reflect a combination of incomplete assembly, uneven coverage, and possible genomic differences between ancient and modern T. forsythia strains.
 
 
 ---
 
 ## Discussion
+
+The analysis of ancient dental calculus samples revealed a complex microbial community consistent with the oral microbiome. Amplicon-based profiling using QIIME2 demonstrated the presence of multiple bacterial taxa commonly associated with the human oral cavity. Beta-diversity analysis using weighted UniFrac and PCoA showed clear differences in community composition between samples, indicating variability in microbial structure within the dataset.
+
+Taxonomic classification of shotgun reads using Kraken2 further supported these observations. The most abundant taxa included members of genera such as *Streptococcus*, *Actinomyces*, *Neisseria*, and *Capnocytophaga*, which are well-known components of the human oral microbiome. Several taxa associated with periodontal disease, including *Tannerella forsythia*, were also detected. The presence of these organisms in ancient dental calculus is consistent with previous studies demonstrating that oral pathogens have long been part of the human oral microbial community.
+
+To further explore the genomic content of *Tannerella forsythia*, assembled contigs from the ancient metagenomic dataset were aligned to the complete modern reference genome. Regions of the modern genome not covered by ancient contigs were identified using bedtools. Several genes related to membrane transport, metabolic processes, and RNA modification were not intersected by the ancient assembly. However, because the ancient assembly is fragmented and derived from metagenomic data, the absence of these genes cannot be interpreted as definitive gene loss. Instead, these results likely reflect a combination of incomplete genome recovery, uneven sequencing coverage, and possible evolutionary differences between ancient and modern strains.
+
+Overall, the results demonstrate that ancient dental calculus preserves a rich record of the oral microbiome and can be used to investigate the presence and genomic characteristics of oral pathogens. Combining amplicon sequencing, shotgun metagenomics, and comparative genomics provides complementary insights into the composition and potential functional diversity of ancient microbial communities.
